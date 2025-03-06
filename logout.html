@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #3a3f47;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #61dafb; /* Light blue color */
+            text-shadow: 0 0 10px rgba(97, 218, 251, 0.7);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4b545c;
+            color: #ffffff;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px #61dafb, 0 0 10px #61dafb;
+        }
+
+        .eye-icon {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #61dafb;
+            color: #282c34;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+            box-shadow: 0 0 10px #61dafb, 0 0 20px #61dafb;
+        }
+
+        p {
+            margin-top: 20px;
+            color: #ffffff;
+        }
+
+        a {
+            color: #61dafb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading Screen Styles */
+        #loading-screen {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+            color: white; /* White text */
+            text-align: center; /* Centered text */
+            padding-top: 20%; /* Position the text in the middle */
+            font-size: 24px; /* Larger font size */
+            z-index: 1000; /* Sit on top */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="signin-form">
+            <h2>Sign In</h2>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <span class="eye-icon" id="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            <button type="submit">Sign In</button>
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </form>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">Loading...</div>
+
+    <script src="script.js"></script>
+    <script>
+        // Show loading screen on form submission
+        document.getElementById('signin-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            document.getElementById('loading-screen').style.display = 'block';
+
+            // Simulate a loading delay (e.g., 3 seconds)
+            setTimeout(function() {
+                // Redirect to the home page after the delay
+                window.location.href = 'home.html'; // Change 'home.html' to your actual home page URL
+            }, 3000);
+        });
+
+        // Function to toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('toggle-password');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.textContent = '(⊙_⊙)'; // Change icon to indicate password is visible
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.textContent = '◕⩊◕'; // Change icon back to indicate password is hidden
+            }
+        }
+    </script>
+</body>
+</html>

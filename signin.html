@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #0f172a;
+        }
+        .neon-border {
+            border: 2px solid transparent;
+            border-image: linear-gradient(45deg, cyan, magenta) 1;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 10px cyan, 0 0 20px magenta;
+        }
+        .glow-on-hover:hover {
+            box-shadow: 0 0 10px white, 0 0 20px white;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="neon-border p-8 rounded-lg bg-gray-900 text-white w-80">
+        <h2 class="text-2xl font-semibold text-center mb-6">Sign in</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label class="block text-gray-400 mb-2" for="username">Username</label>
+                <input class="w-full p-2 bg-gray-800 border-b-2 border-gray-600 focus:outline-none focus:border-white" type="text" id="username" name="username" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-400 mb-2" for="password">Password</label>
+                <input class="w-full p-2 bg-gray-800 border-b-2 border-gray-600 focus:outline-none focus:border-white" type="password" id="password" name="password" required>
+            </div>
+            <div class="flex justify-between text-sm text-gray-400 mb-6">
+                <a href="#" class="hover:underline">Forget Password</a>
+                <a href="#" class="hover:underline">Sign up</a>
+            </div>
+            <button type="submit" class="w-full py-2 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-200 glow-on-hover">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Perform your login logic here
+            // If login is successful, redirect to home.html
+            window.location.href = 'home.html';
+        });
+    </script>
+</body>
+</html>

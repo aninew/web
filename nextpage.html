@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Page 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #e0e0e0; /* Light text color */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        }
+
+        .light-mode {
+            background-color: #f4f4f4; /* Light background */
+            color: #343a40; /* Dark text color */
+        }
+
+        .dark-mode {
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        nav {
+            background-color: #1f1f1f; /* Darker nav background */
+            width: 100%;
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; /* Space between nav items and toggle */
+            align-items: center; /* Center items vertically */
+        }
+
+        nav a {
+            color: #ffffff; /* White text for links */
+            text-decoration: none;
+            margin: 10px 20px; /* Adjusted margin for better spacing */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #5cb85c; /* Change color on hover */
+        }
+
+        .logout-button, .theme-toggle {
+            background: none;
+            border: none;
+            color: #ffffff; /* White text for buttons */
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 20px; /* Space from the right */
+            transition: color 0.3s;
+            font-size: 24px; /* Increase font size for emojis */
+        }
+
+        .logout-button:hover, .theme-toggle:hover {
+            color: #5cb85c; /* Change color on hover */
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 100px; /* Space for the fixed nav */
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 200px; /* Fixed width for images */
+            height: 150px; /* Fixed height for images */
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+        }
+
+        .next-page {
+            margin-top: 50px;
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .next-page:hover {
+            background-color: #4cae4c; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body class="light-mode"> <!-- Default to light mode -->
+    <nav>
+        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+            <div class="flex items-center">
+                <span class="font-bold text-lg">DIGITAL ART GALLERY</span>
+            </div>
+            <div class="flex items-center space-x-8">
+                <a class="text-gray-700 hover:text-black" href="home.html">Home</a>
+                <a class="text-gray-700 hover:text-black" href="about.html">About Us</a>
+                <a class="text-gray-700 hover:text-black" href="contact.html">Contact Us</a>
+            </div>
+            <div class="button-container">
+                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌞</button>
+                <button class="logout-button" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="gallery">
+        <img src="1img.jpg" alt="Image 5">
+        <img src="6img.jpg" alt="Image 6">
+        <img src="7img.jpg" alt="Image 7">
+        <img src="8img.jpg" alt="Image 8">
+        <img src="9img.jpg" alt="Image 9">
+        <img src="10img.jpg" alt="Image 10">
+        <img src="11img.jpg" alt="Image 11">
+        <img src="12img.jpg" alt="Image 12">
+        <img src="13img.jpg" alt="Image 13">
+        <img src="14img.jpg" alt="Image 14">
+        <img src="15img.jpg" alt="Image 15">
+        <img src="16img.jpg" alt="Image 16">
+        <img src="17img.jpg" alt="Image 17">
+        <img src="18img.jpg" alt="Image 18">
+        <img src="19img.jpg" alt="Image 19">
+        <img src="20img.jpg" alt="Image 20">
+    </div>
+
+    <button class="next-page" onclick="goBack()">Back to Gallery</button>
+
+    <script>
+        function logout() {
+            window.location.href = 'signin.html'; // Redirect to signin.html on logout
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggleButton = document.getElementById('themeToggle');
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                themeToggleButton.textContent = '🌙'; // Moon emoji for dark mode
+            } else {
+                themeToggleButton.textContent = '🌞'; // Sun emoji for light mode
+            }
+        }
+
+        function goBack() {
+            window.location.href = 'home.html'; // Change to your main page URL
+        }
+    </script>
+</body>
+</html>
